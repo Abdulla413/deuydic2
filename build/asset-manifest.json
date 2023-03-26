@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2512aef2.css",
+    "main.js": "/static/js/main.ea4fbbb8.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/ALKATIP-Basma.TTF": "/static/media/ALKATIP-Basma.8729afaeda09d70070bc.TTF",
+    "index.html": "/index.html",
+    "main.2512aef2.css.map": "/static/css/main.2512aef2.css.map",
+    "main.ea4fbbb8.js.map": "/static/js/main.ea4fbbb8.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2512aef2.css",
+    "static/js/main.ea4fbbb8.js"
+  ]
+}
