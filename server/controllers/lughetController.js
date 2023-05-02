@@ -7,9 +7,12 @@ const Lughet = require("../models/lughetModel")
 const getLughets = asyncHandler(async (req, res) => {
 
     let q = req.query.q;
-    const query = { $text: { $search: `${q}` } };
+    // const query = { $text: { $search: `${q}` } };
+    const regexPattern = q.split('').join('.*');
 
-    const lughetsResult = await Lughet.find( { deutsch: {$regex :`${q}`, $options: "i" } }).limit(15)
+
+
+    const lughetsResult = await Lughet.find( { deutsch: {$regex :regexPattern, $options: "i" } }).limit(15)
 
 //     const lughets = lughetsResult.sort((a, b) => {
 //         const nameA = a.deutsch.toUpperCase(); // ignore upper and lowercase
