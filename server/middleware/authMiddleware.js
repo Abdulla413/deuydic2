@@ -5,6 +5,8 @@ const Editor = require("../models/editorModel")
 
 const protect = asyncHandler(async (req, res, next) => {
 
+    console.log(req.headers.authorization, "this is header....")
+
     // Check for Editor
     let token
     if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {

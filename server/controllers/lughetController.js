@@ -10,25 +10,7 @@ const getLughets = asyncHandler(async (req, res) => {
     // const query = { $text: { $search: `${q}` } };
     const regexPattern = q.split('').join('.*');
 
-
-
     const lughetsResult = await Lughet.find( { deutsch: {$regex :regexPattern, $options: "i" } }).limit(15)
-
-//     const lughets = lughetsResult.sort((a, b) => {
-//         const nameA = a.deutsch.toUpperCase(); // ignore upper and lowercase
-//         const nameB = b.deutsch.toUpperCase(); // ignore upper and lowercase
-//         if (nameA < nameB) {
-//           return -1;
-//         }
-//         if (nameA > nameB) {
-//           return 1;
-//         }
-      
-//         // names must be equal
-//         return 0;
-//       });
-
-
 
     res.status(200).json(lughetsResult)
 })
@@ -42,7 +24,6 @@ const addLughets = asyncHandler(async (req, res) => {
     }
     const lughets = await Lughet.create({
         deutsch: req.body.deutsch,
-        plural:req.body.plural,
         artikel: req.body.artikel,
         verben: req.body.verben,
         uyghur: req.body.uyghur,
@@ -55,9 +36,7 @@ const addLughets = asyncHandler(async (req, res) => {
 // Get single lughet for update
 
 const getcurrentlughets= asyncHandler(async(req, res)=>{
-    console.log(req.body)
-
-
+    
     const lughets= await Lughet.findById(req.params.id)
     if(!lughets){
         res.status(400)
@@ -65,7 +44,6 @@ const getcurrentlughets= asyncHandler(async(req, res)=>{
     }
      res.status(200).json(lughets)
 })
-
 
 
 // Update lughet
@@ -106,4 +84,4 @@ module.exports = {
     updateLughets,
     deleteLughets,
     getcurrentlughets
-}
+}                                                                                                                   
