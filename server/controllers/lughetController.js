@@ -7,11 +7,11 @@ const Lughet = require("../models/lughetModel")
 const getLughets = asyncHandler(async (req, res) => {
 
     let q = req.query.q;
-    // const query = { $text: { $search: `${q}` } };
-    const regexPattern = q.split('').join('.*');
 
-    const lughetsResult = await Lughet.find( { deutsch: {$regex :regexPattern, $options: "i" } }).limit(15)
+    const regexPattern = new RegExp(`^${q}`);
 
+    const lughetsResult = await Lughet.find({ deutsch: { $regex: regexPattern, $options: "i" } })
+        .limit(15); 
     res.status(200).json(lughetsResult)
 })
 
