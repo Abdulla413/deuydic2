@@ -9,6 +9,8 @@ const Editor = require("../models/editorModel");
 const registerEditor = asyncHandler(async (req, res) => {
     const { name, email, password, rohset } = req.body
 
+    console.log(req.body, "this is body")
+
     if (!name || !email || !password || !rohset) {
         res.status(400)
         throw new Error("Please add all fields")
